@@ -111,7 +111,9 @@ static void buffer_realloc(buffer *b, size_t size) {
 	force_assert(NULL != b->ptr);
 }
 
-
+/* prepare at least "size + 1" big for "b" to copy a string.
+ * the extra 1 byte is for terminating '\0' 
+ */
 char* buffer_string_prepare_copy(buffer *b, size_t size) {
 	force_assert(NULL != b);
 	force_assert(size + 1 > size);
@@ -123,7 +125,7 @@ char* buffer_string_prepare_copy(buffer *b, size_t size) {
 
 	return b->ptr;
 }
-
+/* prepare space to append a string sizes "size" */
 char* buffer_string_prepare_append(buffer *b, size_t size) {
 	force_assert(NULL !=  b);
 
@@ -153,7 +155,7 @@ void buffer_string_set_length(buffer *b, size_t len) {
 	b->used = len + 1;
 	b->ptr[len] = '\0';
 }
-
+/* not get it */
 void buffer_commit(buffer *b, size_t size)
 {
 	force_assert(NULL != b);
