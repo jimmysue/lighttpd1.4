@@ -31,7 +31,7 @@ typedef struct data_unset {
 } data_unset;
 
 typedef struct {
-	data_unset  **data;
+	data_unset  **data;	/* TODO 为什么是 指针的指针 ？ */
 
 	size_t *sorted;
 
@@ -105,7 +105,7 @@ typedef enum {
  * for compare: comp          cond  string/regex
  */
 
-typedef struct _data_config data_config;
+typedef struct _data_config data_config; // 像是一个链表
 struct _data_config {
 	DATA_UNSET;
 
